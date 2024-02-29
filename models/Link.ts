@@ -1,5 +1,7 @@
+import { StaticImageData } from "next/image";
+
 export interface Link {
-    symbol?: string;
+    symbol: string | StaticImageData;
     anchor: string;
     name: string;
 }

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
-import "./globals.css";
+import { Inter } from "next/font/google";
 import Menu from "@/components/Menu";
+import "./globals.css";
+import { MenuLinks } from "@/data/Links";
 
-const jbmono = JetBrains_Mono({ subsets: ["latin"] });
+const jbmono = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "DevX Helper",
@@ -16,10 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="w-screen h-screen bg-white">
+    <html lang="pt-BR" className="w-screen h-screen bg-white dark:bg-[#111111]">
       <body className={jbmono.className}>
-        <Menu />
-        {children}
+        <Menu items={MenuLinks}/>
+        <main className="w-full h-full">
+          {children}
+        </main>
       </body>
     </html>
   );
